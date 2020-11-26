@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.onPositioned
+
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.unit.dp
 import androidx.ui.tooling.preview.Preview
@@ -28,16 +28,30 @@ fun pokedexCard(pokedex: Pokedex, modifier: Modifier) {
     Surface(shape = RoundedCornerShape(6.dp), elevation =6.dp, modifier = modifier) {
         val image = imageResource(pokedex.imageResource)
 
-        Column(/*modifier = Modifier.fillMaxWidth(),*/modifier=Modifier.background(Color(0xFFBB86FC))) {
+         ConstraintLayout {
 
-            Image(asset = image, contentScale = ContentScale.Crop, modifier = Modifier.wrapContentHeight().fillMaxWidth())
 
-            Column(modifier = Modifier.padding(16.dp)) {
-                Text(pokedex.title, style = MaterialTheme.typography.h4,color = white, modifier = Modifier.padding(bottom = 4.dp
-                ))
+                 val (poke_image , poke_text) = createRefs()
 
-            }
-        }
+             Text(pokedex.title,
+                 style = MaterialTheme.typography.h4,
+                 color = white,
+                 modifier = Modifier.padding(bottom = 4.dp
+                 ))
+                 Image(asset = image,
+                     contentScale = ContentScale.Crop,
+                     modifier = Modifier.wrapContentHeight().fillMaxWidth().constrainAs(poke_image){
+                         top.linkTo(parent.top , margin = 20.dp)
+                         start.linkTo(poke_text.start)
+                         end.linkTo(poke_text.end)
+                     })
+
+
+
+
+         }
+
+
     }
 }
 
