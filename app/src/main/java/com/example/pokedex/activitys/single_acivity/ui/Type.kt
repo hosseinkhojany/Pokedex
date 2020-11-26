@@ -1,4 +1,4 @@
-package com.example.pokedex.ui
+package com.example.pokedex.activitys.single_acivity.ui
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,4 +1,4 @@
-package com.example.pokedex
+package com.example.pokedex.activitys.single_acivity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +8,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.setContent
 import androidx.ui.tooling.preview.Preview
-import com.example.pokedex.ui.PokedexTheme
+import com.example.pokedex.activitys.single_acivity.ui.PokedexTheme
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
