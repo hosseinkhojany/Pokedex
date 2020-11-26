@@ -6,10 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumnForIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Shapes
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,26 +22,25 @@ import com.example.pokedex.backend.entitys.Pokemon
 import com.example.pokedex.backend.entitys.pokemons
 
 @Composable
-fun ListPokemonContent(onPokemonClickListener: () -> Unit){
+fun ListPokemonContent(pokemons: List<Pokemon> ,onPokemonClickListener: (Pokemon) -> Unit){
 
     //gridview
     LazyColumnForIndexed(items = pokemons) { index, item ->
-        Row {
-
+        Row{
+            PokemonItem(pokemon = item,onPokemonClickListener = onPokemonClickListener)
         }
+        Divider()
     }
-
-
-
-
 
 }
 
 @Composable
 fun PokemonItem(pokemon: Pokemon, onPokemonClickListener: (Pokemon) -> Unit){
 
-    Card(elevation = 4.dp ,modifier = Modifier.fillMaxWidth(1f) ,
-            shape = RoundedCornerShape(20.dp)) {
+    Card(
+        elevation = 4.dp, modifier = Modifier.fillMaxWidth(1f).clickable(onClick = {onPokemonClickListener(pokemon)}),
+        shape = RoundedCornerShape(20.dp)
+    ) {
         ConstraintLayout {
             val (image , text) = createRefs()
             //pokemon picture
@@ -70,6 +66,6 @@ fun PokemonItem(pokemon: Pokemon, onPokemonClickListener: (Pokemon) -> Unit){
 @Preview(showBackground = true)
 @Composable
 fun Preview_ListPokemonContent(){
-    ListPokemonContent(onPokemonClickListener = {})
+    ListPokemonContent( pokemons , onPokemonClickListener = {})
     PokemonItem(pokemon = pokemons[25], onPokemonClickListener = {})
 }
