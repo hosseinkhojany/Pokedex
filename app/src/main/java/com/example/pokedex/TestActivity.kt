@@ -94,7 +94,7 @@ fun StackUsage(){
     PokedexTheme() {
         Surface() {
             Box(Modifier.padding(25.dp).fillMaxSize()){
-                Text(text = "Hello" , Modifier.align(Alignment.BottomEnd))
+                Text(text = "Hello" , Modifier.align(Alignment.BottomEnd) )
             }
         }
     }
