@@ -1,18 +1,18 @@
 package com.example.pokedex.activitys.list_fragment
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.Text
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.ConstraintLayout
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.pokedex.activitys.single_acivity.ui.purple200
 import com.example.pokedex.backend.entitys.Pokemon
 
@@ -28,7 +28,7 @@ fun PokemonItem(pokemon: Pokemon, onPokemonClickListener: () -> Unit) {
 
 
             Image(asset = image,
-                    modifier = Modifier.heightIn(120.dp).fillMaxWidth().constrainAs(poke_image){
+                    modifier = Modifier.height(120.dp).fillMaxWidth().constrainAs(poke_image){
                         top.linkTo(parent.top , margin = 8.dp)
                         end.linkTo(parent.end,margin =8.dp)
                         start.linkTo(parent.start,margin =8.dp)
@@ -37,15 +37,12 @@ fun PokemonItem(pokemon: Pokemon, onPokemonClickListener: () -> Unit) {
                     })
 
 
-            androidx.compose.foundation.Text(pokemon.name!!,
-                    style = MaterialTheme.typography.h4,
-                    color = purple200,
-                    modifier = Modifier.padding(bottom = 4.dp
-                    ).constrainAs(poke_text) {
-                        top.linkTo(poke_image.bottom)
-                        end.linkTo(poke_image.end)
-                        start.linkTo(poke_image.start)
-                    })
+            Text(text = pokemon.name!!, modifier = Modifier.constrainAs(poke_text) {
+                top.linkTo(poke_image.bottom , margin = 8.dp)
+                bottom.linkTo(parent.bottom , margin = 8.dp)
+                end.linkTo(poke_image.end,margin =8.dp)
+                start.linkTo(poke_image.start,margin =8.dp)
+            } , color = Color.Black)
 
         }
 
