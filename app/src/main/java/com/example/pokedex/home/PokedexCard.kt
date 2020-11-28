@@ -5,6 +5,7 @@ import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
 import androidx.compose.material.ContainerAlpha
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -19,6 +20,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.unit.dp
 import androidx.ui.tooling.preview.Preview
+import com.example.pokedex.activitys.single_acivity.ui.purple200
 import com.example.pokedex.activitys.single_acivity.ui.white
 import com.example.pokedex.home.Pokedex
 
@@ -30,24 +32,30 @@ fun pokedexCard(pokedex: Pokedex, modifier: Modifier) {
 
          ConstraintLayout {
 
-
+                //constrains id
                  val (poke_image , poke_text) = createRefs()
 
-             Text(pokedex.title,
-                 style = MaterialTheme.typography.h4,
-                 color = white,
-                 modifier = Modifier.padding(bottom = 4.dp
-                 ))
+
                  Image(asset = image,
                      contentScale = ContentScale.Crop,
-                     modifier = Modifier.wrapContentHeight().fillMaxWidth().constrainAs(poke_image){
-                         top.linkTo(parent.top , margin = 20.dp)
-                         start.linkTo(poke_text.start)
-                         end.linkTo(poke_text.end)
+                     modifier = Modifier.heightIn(120.dp).fillMaxWidth().constrainAs(poke_image){
+                         top.linkTo(parent.top , margin = 8.dp)
+                         end.linkTo(parent.end,margin =8.dp)
+                         start.linkTo(parent.start,margin =8.dp)
+
+
                      })
 
 
-
+             Text(pokedex.title,
+                     style = MaterialTheme.typography.h4,
+                     color = purple200,
+                     modifier = Modifier.padding(bottom = 4.dp
+                     ).constrainAs(poke_text){
+                         top.linkTo(poke_image.bottom)
+                         end.linkTo(poke_image.end)
+                         start.linkTo(poke_image.start)
+                     })
 
          }
 
@@ -55,6 +63,31 @@ fun pokedexCard(pokedex: Pokedex, modifier: Modifier) {
     }
 }
 
+
+@Composable
+fun ConstraintLayoutContent() {
+    ConstraintLayout {
+        // Create references for the composables to constrain
+        val (button, text) = createRefs()
+
+        Button(
+            onClick = { /* Do something */ },
+            // Assign reference "button" to the Button composable
+            // and constrain it to the top of the ConstraintLayout
+            modifier = Modifier.constrainAs(button) {
+                top.linkTo(parent.top, margin = 16.dp)
+            }
+        ) {
+            Text("Button")
+        }
+
+        // Assign reference "text" to the Text composable
+        // and constrain it to the bottom of the Button composable
+        Text("Text", Modifier.constrainAs(text) {
+            top.linkTo(button.bottom, margin = 16.dp)
+        })
+    }
+}
 @Composable
 @Preview
 fun DefaultRecipeCard() {
