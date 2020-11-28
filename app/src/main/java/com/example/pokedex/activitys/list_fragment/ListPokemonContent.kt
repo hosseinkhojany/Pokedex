@@ -10,7 +10,7 @@ fun ListPokemonContent(pokemons: List<Pokemon> ,onPokemonClickListener: (Pokemon
 
     //gridview
     LazyGridFor(items = pokemons , 2) {
-        PokemonItem(pokemon = it, onPokemonClickListener = {onPokemonClickListener})
+        PokemonItem(pokemon = it, onPokemonClickListener = {onPokemonClickListener(it)})
     }
 }
 

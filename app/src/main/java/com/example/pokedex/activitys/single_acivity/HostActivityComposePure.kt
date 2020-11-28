@@ -18,7 +18,7 @@ import com.example.pokedex.activitys.list_fragment.ListPokemonFragment
 import com.example.pokedex.activitys.single_acivity.ui.PokedexTheme
 import com.example.pokedex.R
 
-class MainActivity : AppCompatActivity() {
+class HostActivityComposePure : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -35,22 +35,9 @@ class MainActivity : AppCompatActivity() {
 
 
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    PokedexTheme {
-        Greeting("Android")
-    }
-}

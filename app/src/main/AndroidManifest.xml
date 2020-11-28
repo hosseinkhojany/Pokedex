@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pokedex">
         <activity
-            android:name=".TestActivity"
+            android:name=".activitys.single_acivity.HostActivityXml"
             android:label="@string/app_name"
             android:theme="@style/Theme.Pokedex.NoActionBar">
             <intent-filter>
