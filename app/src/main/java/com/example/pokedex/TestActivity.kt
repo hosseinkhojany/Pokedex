@@ -11,7 +11,9 @@ import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumnFor
 import androidx.compose.material.Card
+import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ComposeCompilerApi
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -60,14 +62,6 @@ fun <T> LazyGridFor(
 }
 
 @Composable
-fun ListPokemon(){
-    LazyGridFor(items = pokemons) {
-        PokemonItem(pokemons[25])
-    }
-}
-
-
-@Composable
 fun PokemonItem(pokemon: Pokemon){
     
     Card(Modifier.fillMaxWidth() ,elevation = 5.dp) {
@@ -92,7 +86,36 @@ fun PreviewItemPokemon(){
 @Preview(showBackground = true)
 @Composable
 fun PreviewListPokemon(){
-
 }
+
+
+
+
+@Composable
+fun ListPokemon(){
+    LazyGridFor(items = pokemons) {
+        PokemonItem(pokemons[25])
+    }
+}
+
+@Composable
+fun StackUsage(){
+    PokedexTheme() {
+        Surface() {
+            Box(Modifier.padding(25.dp).fillMaxSize()){
+                Text(text = "Hello" , Modifier.align(Alignment.BottomEnd))
+            }
+        }
+    }
+}
+        
+        
+@Preview(showBackground = true)
+@Composable
+fun Stack_Preview(){
+    StackUsage()
+}
+
+
 
 
