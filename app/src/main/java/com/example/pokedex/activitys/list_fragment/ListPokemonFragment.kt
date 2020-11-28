@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import com.example.pokedex.backend.entitys.pokemons
+import com.example.pokedex.customs.AppBarConfig
 
 
 class ListPokemonFragment: Fragment(){
@@ -19,6 +20,9 @@ class ListPokemonFragment: Fragment(){
     ): View? {
         return ComposeView(context = requireContext()).apply {
             setContent {
+
+                AppBarConfig(title = "Pokedex")
+
                 ListPokemonContent(pokemons = pokemons, onPokemonClickListener = {
                     Toast.makeText(context , it.name!! , Toast.LENGTH_LONG).show()
                 })
