@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Pokedex</string>
+    <string name="HP">HP</string>
+    <string name="Attack">Attack</string>
+    <string name="Defence">Defence</string>
+    <string name="spAtk">spAtk</string>
+    <string name="spDef">spDef</string>
+    <string name="Speed">Speed</string>
+    <string name="Total">Total</string>
 </resources>
