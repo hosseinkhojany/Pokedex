@@ -6,19 +6,20 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material.ripple.RippleIndication
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.pokedex.activitys.single_acivity.ui.purple200
+import androidx.ui.tooling.preview.Preview
 import com.example.pokedex.backend.entitys.Pokemon
+import com.example.pokedex.backend.entitys.pokemons
 
 @Composable
-fun PokemonItem(pokemon: Pokemon, onPokemonClickListener: () -> Unit) {
-    Card(shape = RoundedCornerShape(16.dp), elevation = 6.dp, modifier = Modifier.padding(16.dp).clickable(onClick = {onPokemonClickListener})) {
+fun PokemonItem(pokemon: Pokemon, onPokemonClickListener: (Pokemon) -> Unit) {
+    Card(shape = RoundedCornerShape(16.dp), elevation = 6.dp, modifier = Modifier.padding(16.dp)
+            .clickable(onClick = {onPokemonClickListener(pokemon)})) {
         val image = imageResource(pokemon.image!!)
 
         ConstraintLayout {
@@ -48,3 +49,10 @@ fun PokemonItem(pokemon: Pokemon, onPokemonClickListener: () -> Unit) {
 
     }
 }
+
+@Composable
+@Preview(showBackground = true)
+fun PokemonItemPreview(){
+    PokemonItem(pokemon = pokemons[24], onPokemonClickListener = {})
+}
+

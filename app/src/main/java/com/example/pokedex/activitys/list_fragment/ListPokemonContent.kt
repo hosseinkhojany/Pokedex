@@ -12,7 +12,7 @@ import com.example.pokedex.customs.AppBarConfig
 fun ListPokemonContent(pokemons: List<Pokemon> ,onPokemonClickListener: (Pokemon) -> Unit){
 
     //gridview
-    LazyGridFor(items = pokemons , 2) {
+    LazyGridFor(items = pokemons , 2 ) { it ->
         PokemonItem(pokemon = it, onPokemonClickListener = {onPokemonClickListener(it)})
     }
 }
@@ -22,7 +22,6 @@ fun ListPokemonContent(pokemons: List<Pokemon> ,onPokemonClickListener: (Pokemon
 fun Preview_ListPokemonContent(){
     PokedexTheme {
         Column() {
-            AppBarConfig(title = "Hello")
             ListPokemonContent( pokemons , onPokemonClickListener = {})
             PokemonItem(pokemon = pokemons[25], onPokemonClickListener = {})
         }
