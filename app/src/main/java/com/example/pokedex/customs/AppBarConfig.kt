@@ -41,7 +41,7 @@ fun AppBarConfig(activity: Activity? , title : String){
                 )
             }
     )
-    Divider()
+   // Divider()
 }
 
 @Preview
