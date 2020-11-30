@@ -26,7 +26,7 @@ class DetailPokemonFragment: Fragment(){
 
                         //AppBarConfiguration
 
-                        DetailPokemonContent()
+                        DetailPokemonContents()
 
                     }
                 }

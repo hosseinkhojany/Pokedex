@@ -11,7 +11,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.ui.tooling.preview.Preview
-import com.example.pokedex.activitys.detail_fragment.DetailPokemonContent
+
 import com.example.pokedex.activitys.detail_fragment.DetailPokemonFragment
 import com.example.pokedex.activitys.list_fragment.ListPokemonContent
 import com.example.pokedex.activitys.list_fragment.ListPokemonFragment
