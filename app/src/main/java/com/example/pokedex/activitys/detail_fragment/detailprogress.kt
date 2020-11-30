@@ -1,5 +1,6 @@
 package com.example.pokedex.activitys.detail_fragment
 
+import android.content.res.Resources
 import androidx.compose.animation.animate
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -17,6 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.fragment.app.Fragment
 import androidx.ui.tooling.preview.Preview
 import com.example.pokedex.R
 
@@ -31,19 +33,19 @@ fun Toprogress(modifier: Modifier = Modifier) {
 */
 
     Column(modifier = modifier) {
-        Row(
-            modifier = modifier,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            TopAppBar(
-                modifier = Modifier.clip(shape = RoundedCornerShape(0.dp, 0.dp, 200.dp, 50.dp))
-                    .height(70.dp),
-                elevation = 0.dp, // No shadow needed
-                contentColor = MaterialTheme.colors.onSurface,
-                title = { Row { androidx.compose.foundation.Text(text = " ") } },//{ Row { title() } }, // https://issuetracker.google.com/168793068
-
-            )
-        }
+//        Row(
+//            modifier = modifier,
+//            verticalAlignment = Alignment.CenterVertically
+//        ) {
+//            TopAppBar(
+//                modifier = Modifier.clip(shape = RoundedCornerShape(0.dp, 0.dp, 200.dp, 50.dp))
+//                    .height(70.dp),
+//                elevation = 0.dp, // No shadow needed
+//                contentColor = MaterialTheme.colors.onSurface,
+//                title = { Row { androidx.compose.foundation.Text(text = " ") } },//{ Row { title() } }, // https://issuetracker.google.com/168793068
+//
+//            )
+//        }
         Row(
             modifier = modifier,
 
@@ -66,7 +68,7 @@ fun Toprogress(modifier: Modifier = Modifier) {
             LinearProgressIndicator(
                 color = Color.Blue,
                 progress = progress,
-                modifier = Modifier.padding(start = 8.dp,top = 16.dp, bottom = 8.dp).fillMaxWidth(0.8f)
+                modifier = Modifier.padding(start = 8.dp,top = 16.dp, bottom = 8.dp).fillMaxWidth(1f)
             )
         }
 
@@ -91,7 +93,7 @@ fun Toprogress(modifier: Modifier = Modifier) {
             LinearProgressIndicator(
                 color = Color.Red,
                 progress = progress,
-                modifier = Modifier.padding(start = 8.dp,top = 8.dp, bottom = 8.dp).fillMaxWidth(0.8f)
+                modifier = Modifier.padding(start = 8.dp,top = 8.dp, bottom = 8.dp).fillMaxWidth(1f)
             )
         }
 
@@ -116,7 +118,7 @@ fun Toprogress(modifier: Modifier = Modifier) {
             LinearProgressIndicator(
                 color = Color.Yellow,
                 progress = progress,
-                modifier = Modifier.padding(start = 8.dp,top = 8.dp, bottom = 8.dp).fillMaxWidth(0.8f)
+                modifier = Modifier.padding(start = 8.dp,top = 8.dp, bottom = 8.dp).fillMaxWidth(1f)
             )
         }
         Row(
@@ -140,7 +142,7 @@ fun Toprogress(modifier: Modifier = Modifier) {
             LinearProgressIndicator(
                 color = Color.Green,
                 progress = progress,
-                modifier = Modifier.padding(start = 8.dp,top = 8.dp, bottom = 8.dp).fillMaxWidth(0.8f)
+                modifier = Modifier.padding(start = 8.dp,top = 8.dp, bottom = 8.dp).fillMaxWidth(1f)
             )
         }
         Row(
@@ -164,7 +166,7 @@ fun Toprogress(modifier: Modifier = Modifier) {
             LinearProgressIndicator(
                 color = Color.Cyan,
                 progress = progress,
-                modifier = Modifier.padding(start = 8.dp,top = 8.dp, bottom = 8.dp).fillMaxWidth(0.8f)
+                modifier = Modifier.padding(start = 8.dp,top = 8.dp, bottom = 8.dp).fillMaxWidth(1f)
             )
         }
         Row(
@@ -188,7 +190,7 @@ fun Toprogress(modifier: Modifier = Modifier) {
             LinearProgressIndicator(
                 color = Color.LightGray,
                 progress = progress,
-                modifier = Modifier.padding(start = 8.dp,top = 8.dp, bottom = 8.dp).fillMaxWidth(0.8f)
+                modifier = Modifier.padding(start = 8.dp,top = 8.dp, bottom = 8.dp).fillMaxWidth(1f)
             )
         }
         Row(
@@ -212,7 +214,7 @@ fun Toprogress(modifier: Modifier = Modifier) {
             LinearProgressIndicator(
                 color = Color.Red,
                 progress = progress,
-                modifier = Modifier.padding(start = 8.dp,top = 8.dp, bottom = 8.dp).fillMaxWidth(0.8f)
+                modifier = Modifier.padding(start = 8.dp,top = 8.dp, bottom = 8.dp).fillMaxWidth(1f)
             )
         }
     }
